@@ -1,0 +1,160 @@
+{
+  "info": {
+    "name": "Expense Tracker API",
+    "description": "Collection for testing the Expense Tracker RESTful API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "Get All Expenses",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/expenses",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "expenses"]
+        }
+      }
+    },
+    {
+      "name": "Get Expenses with Filters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/expenses?category=Food&sortBy=amount&order=desc",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "expenses"],
+          "query": [
+            {
+              "key": "category",
+              "value": "Food"
+            },
+            {
+              "key": "sortBy",
+              "value": "amount"
+            },
+            {
+              "key": "order",
+              "value": "desc"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create New Expense",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"Coffee at Starbucks\",\n  \"category\": \"Food\",\n  \"amount\": 4.95\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/expenses",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "expenses"]
+        }
+      }
+    },
+    {
+      "name": "Create Expense with Date",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"Grocery shopping at Walmart\",\n  \"category\": \"Food\",\n  \"amount\": 87.65,\n  \"date\": \"2025-08-28T10:30:00.000Z\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/expenses",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "expenses"]
+        }
+      }
+    },
+    {
+      "name": "Update Expense",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"Updated: Coffee and pastry\",\n  \"category\": \"Food\",\n  \"amount\": 8.50\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/expenses/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "expenses", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "REPLACE_WITH_ACTUAL_EXPENSE_ID"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Expense",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/expenses/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "expenses", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "REPLACE_WITH_ACTUAL_EXPENSE_ID"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
